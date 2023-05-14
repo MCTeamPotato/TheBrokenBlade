@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="LGPL-v2.1"
+
+[[mods]]
+modId="broken_blade"
+version="${file.jarVersion}"
+displayName="Mowzie's Mobs: The Broken Blade"
+authors="Team Potato"
+description='''
+
+'''
