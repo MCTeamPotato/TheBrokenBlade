@@ -15,6 +15,7 @@ import java.util.Objects;
 public abstract class MixinRenderWroughtnaut {
     @ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lcom/bobmowzie/mowziesmobs/client/render/entity/layer/ItemLayer;<init>(Lnet/minecraft/client/renderer/entity/IEntityRenderer;Lcom/ilexiconn/llibrary/client/model/tools/AdvancedModelRenderer;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/model/ItemCameraTransforms$TransformType;)V"))
     private ItemStack getItemStack(ItemStack itemStack) {
-        return Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(BrokenBlade.ITEM.get()))).getDefaultInstance();
+        if (BrokenBlade.BROKEN_BLADE == null) BrokenBlade.BROKEN_BLADE = Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(BrokenBlade.ITEM.get()))).getDefaultInstance();
+        return BrokenBlade.BROKEN_BLADE;
     }
 }

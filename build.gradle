@@ -10,19 +10,19 @@ buildscript {
         classpath 'org.parchmentmc:librarian:1.+'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '0.0.1'
+version = '1.16.5-1.0.0'
 group = 'com.teampotato.broken_blade'
 archivesBaseName = 'broken_blade'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
-    mappings channel: 'parchment', version: '2021.10.17-1.16.5'
+    mappings channel: 'parchment', version: '2022.03.06-1.16.5'
     runs {
         client {
             workingDirectory project.file('run')
@@ -100,16 +100,3 @@ jar {
 }
 
 jar.finalizedBy('reobfJar') 
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
